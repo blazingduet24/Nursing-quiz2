@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nursing Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-light: #f0fdf4;
+      --bg-dark: #1f2937;
+      --text-light: #065f46;
+      --text-dark: #ffffff;
+      --card-light: white;
+      --card-dark: #374151;
+      --accent: #34d399;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header, footer {
+      background-color: #a7f3d0;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    body.dark header, body.dark footer {
+      background-color: #065f46;
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      background-color: #d1fae5;
+      padding: 2rem;
+    }
+
+    body.dark .hero {
+      background-color: #065f46;
+    }
+
+    .quiz {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: var(--card-light);
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    body.dark .card {
+      background-color: var(--card-dark);
+      box-shadow: 0 0 10px #111;
+    }
+
+    .toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 0.5rem 1rem;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .start-btn {
+      background: var(--accent);
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse 2s infinite;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px var(--accent); }
+      50% { box-shadow: 0 0 20px #10b981; }
+      100% { box-shadow: 0 0 10px var(--accent); }
+    }
+
+    .options button {
+      margin: 5px;
+      padding: 0.5rem 1rem;
+      background-color: #10b981;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      display: block;
+      margin: 2rem auto;
+      background: #2563eb;
+      padding: 1rem 2rem;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #result {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="toggle" onclick="document.body.classList.toggle('dark')">Toggle Dark Mode</button>
+
+  <header>
+    <h1>Nursing Knowledge Quiz</h1>
+  </header>
+
+  <section class="hero">
+    <h2>Test your nursing skills with this interactive quiz!</h2>
+    <button class="start-btn" onclick="document.getElementById('quiz-section').scrollIntoView({behavior: 'smooth'})">Start Quiz</button>
+  </section>
+
+  <section class="quiz" id="quiz-section">
+    <form id="quiz-form">
+      <div class="card">
+        <p><strong>1. What is the normal adult blood pressure?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> A. 120/80 mmHg</label><br>
+          <label><input type="radio" name="q1" value="b"> B. 160/100 mmHg</label><br>
+          <label><input type="radio" name="q1" value="c"> C. 90/60 mmHg</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><strong>2. What is aseptic technique used for?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> A. Pain relief</label><br>
+          <label><input type="radio" name="q2" value="b"> B. Infection prevention</label><br>
+          <label><input type="radio" name="q2" value="c"> C. Blood pressure monitoring</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><strong>3. Which is a sign of hypoglycemia?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> A. High energy</label><br>
+          <label><input type="radio" name="q3" value="b"> B. Shakiness</label><br>
+          <label><input type="radio" name="q3" value="c"> C. Dry mouth</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><strong>4. What does BMI stand for?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> A. Basic Metabolic Index</label><br>
+          <label><input type="radio" name="q4" value="b"> B. Body Mass Index</label><br>
+          <label><input type="radio" name="q4" value="c"> C. Blood Measurement Indicator</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><strong>5. What is the role of a stethoscope?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> A. Blood drawing</label><br>
+          <label><input type="radio" name="q5" value="b"> B. Sound monitoring</label><br>
+          <label><input type="radio" name="q5" value="c"> C. Heart pumping</label>
+        </div>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+    </form>
+
+    <div id="result"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 Our Lady of Fatima University - Nursing Department
+  </footer>
+
+  <script>
+    function submitQuiz() {
+      const answers = {
+        q1: 'a',
+        q2: 'b',
+        q3: 'b',
+        q4: 'b',
+        q5: 'b'
+      };
+
+      let score = 0;
+      for (let key in answers) {
+        const userAnswer = document.querySelector(`input[name="${key}"]:checked`);
+        if (userAnswer && userAnswer.value === answers[key]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById('result');
+      result.innerHTML = `You scored ${score} out of 5. ${score === 5 ? "🎉 Excellent!" : ""}`;
+    }
+  </script>
+
+</body>
+</html>
